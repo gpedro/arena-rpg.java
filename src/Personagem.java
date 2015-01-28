@@ -49,10 +49,10 @@ public class Personagem {
         return arma != null;
     }
     
-    public double distanciaAte(Personagem outroPersonagem) {
+    public int distanciaAte(Personagem outroPersonagem) {
         int a = (x - outroPersonagem.x)*2;
         int b = (y - outroPersonagem.y)*2;
-        return Math.sqrt(a + b);
+        return (int) Math.sqrt(a + b);
     }
     
     public boolean estaAtingivel(Personagem outroPersonagem) {
