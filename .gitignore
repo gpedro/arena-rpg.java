@@ -3,3 +3,4 @@
 *.java
 bin/
 target/
+build/
