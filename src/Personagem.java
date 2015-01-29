@@ -50,13 +50,13 @@ public class Personagem {
     }
     
     public int distanciaAte(Personagem outroPersonagem) {
-        int a = (x - outroPersonagem.x)*2;
-        int b = (y - outroPersonagem.y)*2;
+        int a = (int) Math.pow(y - outroPersonagem.x, 2);
+        int b = (int) Math.pow(y - outroPersonagem.y, 2);
         return (int) Math.sqrt(a + b);
     }
     
     public boolean estaAtingivel(Personagem outroPersonagem) {
-        return estaArmado() ? (distanciaAte(outroPersonagem) <= arma.getDistancia()) : true;
+        return estaArmado() ? (distanciaAte(outroPersonagem) <= arma.getDistancia()) : false;
     }
     
     public void ataca(Personagem outroPersonagem) {
