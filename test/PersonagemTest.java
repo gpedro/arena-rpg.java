@@ -2,15 +2,19 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+
+import static org.mockito.Mockito.*;
 
 
 public class PersonagemTest {
 
     private Personagem leonidas, hulk;
+    @Mock private Arma espada;
     
     @Before
     public void setUp() throws Exception {
-        Arma espada = new Arma("Espada", 1, 20);
+        espada = mock(Arma.class); //new Arma("Espada", 1, 20);
         leonidas = new Personagem("Leonidas", espada, 200);
         hulk = new Personagem("Hulk", null, 800);
     }
@@ -22,6 +26,7 @@ public class PersonagemTest {
     
     @Test
     public void deveriaAtacarOutroPersonagem() {
+    	when(espada.getDano()).thenReturn(20);
         leonidas.ataca(hulk);
         
         assertEquals(hulk.getHp(), 780);
@@ -38,6 +43,8 @@ public class PersonagemTest {
 
         Personagem chuck = new Personagem("Chuck Noris", null, 1);
         chuck.movePara(1, 1);
+        
+        when(espada.getDistancia()).thenReturn(1);
         
         assertTrue(leonidas.estaAtingivel(chuck));
     }
