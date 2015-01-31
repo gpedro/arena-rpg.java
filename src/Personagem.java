@@ -50,7 +50,7 @@ public class Personagem {
     }
     
     public int distanciaAte(Personagem outroPersonagem) {
-        int a = (int) Math.pow(y - outroPersonagem.x, 2);
+        int a = (int) Math.pow(x - outroPersonagem.x, 2);
         int b = (int) Math.pow(y - outroPersonagem.y, 2);
         return (int) Math.sqrt(a + b);
     }
